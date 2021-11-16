@@ -15,6 +15,8 @@
 		5A1967862743AC5B00581F13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1967842743AC5B00581F13 /* LaunchScreen.storyboard */; };
 		5AF4BBF52743AF3700EDF37E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4BBF42743AF3700EDF37E /* Forecast.swift */; };
 		5AF4BBF72743AF7D00EDF37E /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4BBF62743AF7D00EDF37E /* ForecastService.swift */; };
+		5AF4BBF92743B1FA00EDF37E /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4BBF82743B1FA00EDF37E /* ForecastViewModel.swift */; };
+		5AF4BBFB2743B22200EDF37E /* ForecastListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4BBFA2743B22200EDF37E /* ForecastListViewModel.swift */; };
 		BA2830321972EA14188F2EEF /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611020D1A98513D14181AF5C /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		5A1967872743AC5B00581F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AF4BBF42743AF3700EDF37E /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		5AF4BBF62743AF7D00EDF37E /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		5AF4BBF82743B1FA00EDF37E /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
+		5AF4BBFA2743B22200EDF37E /* ForecastListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListViewModel.swift; sourceTree = "<group>"; };
 		611020D1A98513D14181AF5C /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45423A714A37A8A5EA01592 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +80,8 @@
 				5A1967872743AC5B00581F13 /* Info.plist */,
 				5AF4BBF42743AF3700EDF37E /* Forecast.swift */,
 				5AF4BBF62743AF7D00EDF37E /* ForecastService.swift */,
+				5AF4BBF82743B1FA00EDF37E /* ForecastViewModel.swift */,
+				5AF4BBFA2743B22200EDF37E /* ForecastListViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -213,8 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF4BBF52743AF3700EDF37E /* Forecast.swift in Sources */,
+				5AF4BBFB2743B22200EDF37E /* ForecastListViewModel.swift in Sources */,
 				5A19677E2743AC5B00581F13 /* ViewController.swift in Sources */,
 				5A19677A2743AC5B00581F13 /* AppDelegate.swift in Sources */,
+				5AF4BBF92743B1FA00EDF37E /* ForecastViewModel.swift in Sources */,
 				5AF4BBF72743AF7D00EDF37E /* ForecastService.swift in Sources */,
 				5A19677C2743AC5B00581F13 /* SceneDelegate.swift in Sources */,
 			);
@@ -369,6 +377,7 @@
 				DEVELOPMENT_TEAM = RAR2BY5DT6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to provide forecast data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -398,6 +407,7 @@
 				DEVELOPMENT_TEAM = RAR2BY5DT6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to provide forecast data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
