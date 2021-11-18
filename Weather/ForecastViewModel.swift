@@ -26,15 +26,15 @@ struct ForecastViewModel {
         Self.dateFormatter.string(from: forecast.dt)
     }
     
-    var temp: String { "\(Self.tempFormatter.string(for: forecast.main.temp) ?? "0")°C"
+    var temp: String { "\(Self.tempFormatter.string(for: (forecast.main.temp - 273.5)) ?? "0")°C"
     }
     
     var prussure: String {
-        "\(forecast.main.pressure)"
+        "\(forecast.main.pressure)hPa"
     }
     
     var humidity: String {
-        "\(forecast.main.humidity)"
+        "\(forecast.main.humidity)%"
     }
     
     var weatherDescription: String {
@@ -42,10 +42,10 @@ struct ForecastViewModel {
     }
     
     var pop: String {
-        "💧\(forecast.pop)%"
+        "\(forecast.pop)mm"
     }
     
     var windSpeed: String {
-        "💨\(forecast.wind.speed)"
+        "\(forecast.wind.speed)km/h"
     }
 }
