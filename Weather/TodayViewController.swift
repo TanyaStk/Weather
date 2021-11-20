@@ -7,7 +7,8 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class TodayViewController: UIViewController {
+    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var tempAndDescrLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView?
@@ -19,6 +20,7 @@ class WeatherViewController: UIViewController {
 
     var forecasts: [ForecastViewModel] = []
     var location: String = "City name, Country"
+    
     private let locationManeger = LocationManager.shared
     private var lat: Double?
     private var lon: Double? {
@@ -40,6 +42,13 @@ class WeatherViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ForecastViewController {
+            let vc = segue.destination as? ForecastViewController
+            vc?.forecast = forecasts
+        }
+    }
 
     private func showWeather() {
         ForecastService.shared.weatherForecastForCoordinates(lat: lat ?? 0, lon: lon ?? 0) {
@@ -50,7 +59,7 @@ class WeatherViewController: UIViewController {
                     ForecastViewModel(forecast: $0)
                 }
                 self.location = "\(forecast.city.name), \(forecast.city.country)"
-                self.setupForecastUI()
+                self.setupTodayUI()
             case .failure(let apiError):
                 switch apiError{
                 case .error(let errorString):
@@ -60,14 +69,15 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    private func setupForecastUI() {
+    private func setupTodayUI() {
+        guard let today = self.forecasts.first else { return }
         self.locationLabel?.text = self.location
-        self.tempAndDescrLabel?.text = "\(self.forecasts[0].temp) | \(self.forecasts[0].weatherDescription)"
+        self.tempAndDescrLabel?.text = "\(today.temp)C | \(today.weatherDescription)"
         self.weatherImage?.image = UIImage(systemName: "sun.max")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        self.humidityLabel.text = self.forecasts[0].humidity
-        self.popLabel.text = self.forecasts[0].pop
-        self.pressureLabel.text = self.forecasts[0].prussure
-        self.windSpeedLabel.text = self.forecasts[0].windSpeed
-        self.windDirectionLabel.text = self.forecasts[0].windDirection
+        self.humidityLabel.text = today.humidity
+        self.popLabel.text = today.pop
+        self.pressureLabel.text = today.prussure
+        self.windSpeedLabel.text = today.windSpeed
+        self.windDirectionLabel.text = today.windDirection
     }
 }

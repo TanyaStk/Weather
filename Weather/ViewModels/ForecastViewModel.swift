@@ -12,7 +12,7 @@ struct ForecastViewModel {
     
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, MMM, d"
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }
     
@@ -26,7 +26,7 @@ struct ForecastViewModel {
         Self.dateFormatter.string(from: forecast.dt)
     }
     
-    var temp: String { "\(Self.tempFormatter.string(for: (forecast.main.temp - 273.5)) ?? "0")°C"
+    var temp: String { "\(Self.tempFormatter.string(for: (forecast.main.temp - 273.5)) ?? "0")°"
     }
     
     var prussure: String {
