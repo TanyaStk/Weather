@@ -78,7 +78,7 @@
 				5A1967822743AC5B00581F13 /* Assets.xcassets */,
 				5A1967842743AC5B00581F13 /* LaunchScreen.storyboard */,
 				5A1967872743AC5B00581F13 /* Info.plist */,
-				5AF4BBF42743AF3700EDF37E /* Forecast.swift */,
+				5A585E2227493BFE006EE2AE /* Models */,
 				5A3BE96E27450F90004E167D /* Services */,
 				5AF4BBF82743B1FA00EDF37E /* ForecastViewModel.swift */,
 			);
@@ -92,6 +92,14 @@
 				5A3BE96F27450FA8004E167D /* LocationManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5A585E2227493BFE006EE2AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5AF4BBF42743AF3700EDF37E /* Forecast.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F25BD8C684D3B9A2D75F89A1 /* Frameworks */ = {

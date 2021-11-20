@@ -8,11 +8,15 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-    @IBOutlet weak var locationLabel: UILabel?
-    @IBOutlet weak var tempAndDescrLabel: UILabel?
-    @IBOutlet weak var descriptionLabel: UILabel?
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var tempAndDescrLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView?
-    
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var popLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var windDirectionLabel: UILabel!
+
     var forecasts: [ForecastViewModel] = []
     var location: String = "City name, Country"
     private let locationManeger = LocationManager.shared
@@ -60,6 +64,10 @@ class WeatherViewController: UIViewController {
         self.locationLabel?.text = self.location
         self.tempAndDescrLabel?.text = "\(self.forecasts[0].temp) | \(self.forecasts[0].weatherDescription)"
         self.weatherImage?.image = UIImage(systemName: "sun.max")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-//        self.weatherImage?.tintColor = UIColor(red: 1.00, green: 0.8, blue: 0.03, alpha: 1.00)
+        self.humidityLabel.text = self.forecasts[0].humidity
+        self.popLabel.text = self.forecasts[0].pop
+        self.pressureLabel.text = self.forecasts[0].prussure
+        self.windSpeedLabel.text = self.forecasts[0].windSpeed
+        self.windDirectionLabel.text = self.forecasts[0].windDirection
     }
 }

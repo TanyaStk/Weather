@@ -30,22 +30,30 @@ struct ForecastViewModel {
     }
     
     var prussure: String {
-        "\(forecast.main.pressure)hPa"
+        "\(forecast.main.pressure) hPa"
     }
     
     var humidity: String {
-        "\(forecast.main.humidity)%"
+        "\(forecast.main.humidity) %"
     }
     
     var weatherDescription: String {
-        "\(forecast.weather[0].description)"
+        "\(forecast.weather[0].description)".firstUppercased
     }
     
     var pop: String {
-        "\(forecast.pop)mm"
+        "\(forecast.pop) mm"
     }
     
     var windSpeed: String {
-        "\(forecast.wind.speed)km/h"
+        "\(forecast.wind.speed) km/h"
     }
+    
+    var windDirection: String {
+        "\(forecast.wind.deg)"
+    }
+}
+
+extension StringProtocol {
+    var firstUppercased: String { return prefix(1).uppercased() + dropFirst() }
 }
