@@ -25,7 +25,7 @@ class ForecastService {
                                                              dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
                                                              keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys,
                                                              completion: @escaping (Swift.Result<T, APIError>) -> Void){
-        let stringUrl = "\(self.forecastBaseURL)lat=\(lat)&lon=\(lon)&appid=\(self.API_KEY)"
+        let stringUrl = "\(self.forecastBaseURL)lat=\(lat)&lon=\(lon)&appid=\(self.API_KEY)&units=metric"
         guard let forecastUrl = URL(string: stringUrl) else { return }
         Alamofire.request(forecastUrl).responseJSON(completionHandler: { (response) in
             switch response.result {

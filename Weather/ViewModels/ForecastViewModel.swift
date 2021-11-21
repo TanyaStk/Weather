@@ -10,23 +10,21 @@ import Foundation
 struct ForecastViewModel {
     let forecast: Forecast.Hourly
     
-    private static var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter
-    }
-    
     private static var tempFormatter: NumberFormatter {
         let tempFormatter = NumberFormatter()
         tempFormatter.maximumFractionDigits = 0
         return tempFormatter
     }
     
-    var date: String {
-        Self.dateFormatter.string(from: forecast.dt)
+    var date: Date {
+        forecast.dt
     }
     
-    var temp: String { "\(Self.tempFormatter.string(for: (forecast.main.temp - 273.5)) ?? "0")°"
+    var temp: String { "\(Self.tempFormatter.string(for: (forecast.main.temp)) ?? "0")°"
+    }
+    
+    var icon: String {
+        forecast.weather[0].description
     }
     
     var prussure: String {
