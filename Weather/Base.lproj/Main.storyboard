@@ -13,7 +13,7 @@
         <!--Today-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TodayViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Today" id="BYZ-38-t0r" customClass="TodayViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,11 +150,7 @@
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="regular"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lzu-Wr-Tf0" userLabel="WindDirection Label">
-                                                        <rect key="frame" x="0.0" y="23.333333333333314" width="40" height="20.333333333333329"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="U8e-pg-ubp"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="aii-1x-6Yp"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="10" y="23.333333333333314" width="20" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -299,11 +295,10 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="ibL-KS-6CH" secondAttribute="trailing" id="8ia-uI-m6F"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ltC-0f-GV0" secondAttribute="bottom" id="Irf-lK-f0h"/>
-                                                        <constraint firstItem="ltC-0f-GV0" firstAttribute="leading" secondItem="e6J-jh-f79" secondAttribute="leading" id="Pgn-DF-jzm"/>
-                                                        <constraint firstItem="ibL-KS-6CH" firstAttribute="leading" secondItem="e6J-jh-f79" secondAttribute="leading" id="l5a-nf-UIq"/>
-                                                        <constraint firstItem="ibL-KS-6CH" firstAttribute="top" secondItem="e6J-jh-f79" secondAttribute="top" id="lLM-RA-qAo"/>
+                                                        <constraint firstItem="ibL-KS-6CH" firstAttribute="leading" secondItem="e6J-jh-f79" secondAttribute="leading" id="Iif-2l-gpq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ltC-0f-GV0" secondAttribute="bottom" id="Phi-6T-eDT"/>
+                                                        <constraint firstItem="ibL-KS-6CH" firstAttribute="top" secondItem="e6J-jh-f79" secondAttribute="top" id="oG8-FI-NCX"/>
+                                                        <constraint firstItem="ltC-0f-GV0" firstAttribute="leading" secondItem="e6J-jh-f79" secondAttribute="leading" id="zbS-uc-Q9X"/>
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMz-LR-GBX">

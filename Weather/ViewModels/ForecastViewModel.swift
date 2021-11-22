@@ -17,10 +17,11 @@ struct ForecastViewModel {
     }
     
     var date: Date {
-        forecast.dt
+        return forecast.dt
     }
     
-    var temp: String { "\(Self.tempFormatter.string(for: (forecast.main.temp)) ?? "0")°"
+    var temp: String {
+        return "\(Int(forecast.main.temp))°"
     }
     
     var icon: String {

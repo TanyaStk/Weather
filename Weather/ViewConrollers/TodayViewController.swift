@@ -49,9 +49,23 @@ class TodayViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    private static var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .iso8601)
+        dateFormatter.dateFormat = "MMMM dd"
+        return dateFormatter
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ForecastViewController {
-            vc.forecast = forecasts
+            var grouptedForecasts : [[ForecastViewModel]] = [[]]
+            let forecastDict = Dictionary(grouping: forecasts) {Self.dateFormatter.string(from: $0.date)}
+            let sortedForecast = forecastDict.sorted{ Self.dateFormatter.date(from: $0.key) ?? Date() < Self.dateFormatter.date(from: $1.key) ?? Date()
+            }
+            for key in sortedForecast {
+                grouptedForecasts.append(key.value)
+            }
+            vc.grouptedForecasts = grouptedForecasts
         }
     }
 
