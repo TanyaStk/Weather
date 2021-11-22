@@ -9,7 +9,7 @@ import Foundation
 
 struct ForecastViewModel {
     let forecast: Forecast.Hourly
-    
+
     private static var tempFormatter: NumberFormatter {
         let tempFormatter = NumberFormatter()
         tempFormatter.maximumFractionDigits = 0

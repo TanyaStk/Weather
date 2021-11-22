@@ -17,87 +17,30 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
-
-    var forecasts: [ForecastViewModel] = []
-    var location: String = "City name, Country"
     
-    private let locationManeger = LocationManager.shared
-    private var lat: Double?
-    private var lon: Double? {
-        didSet {
-            showWeather()
-        }
+    @IBAction func shareForecastAsText(_ sender: UIButton) {
+        let textShare = [ today ]
+        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
+
+    var today = ForecastViewModel.init(forecast: Forecast.Hourly(dt: Date(), main: Forecast.Hourly.Main(temp: 0, pressure: 0, humidity: 0), weather: [], wind: Forecast.Hourly.Wind.init(speed: 0, deg: 0), pop: 0))
+    var location: String = "City name, Country"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManeger.setupLocationManager()
-        locationManeger.didUpdatedLocation = { [self] in
-            if locationManeger.lat != nil {
-                lat = locationManeger.lat
-                lon = locationManeger.lon
-            } else {
-                lat = 0
-                lon = 0
-            }
-        }
-    }
-    
-    @IBAction func showForecastListButton() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "forecastList") as! ForecastViewController
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
-    private static var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .iso8601)
-        dateFormatter.dateFormat = "MMMM dd"
-        return dateFormatter
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ForecastViewController {
-            var grouptedForecasts : [[ForecastViewModel]] = [[]]
-            let forecastDict = Dictionary(grouping: forecasts) {Self.dateFormatter.string(from: $0.date)}
-            let sortedForecast = forecastDict.sorted{ Self.dateFormatter.date(from: $0.key) ?? Date() < Self.dateFormatter.date(from: $1.key) ?? Date()
-            }
-            for key in sortedForecast {
-                grouptedForecasts.append(key.value)
-            }
-            vc.grouptedForecasts = grouptedForecasts
-        }
-    }
-
-    private func showWeather() {
-        ForecastService.shared.weatherForecastForCoordinates(lat: lat ?? 0, lon: lon ?? 0) {
-            (result: Swift.Result<Forecast, ForecastService.APIError>) in
-            switch result {
-            case .success(let forecast):
-                self.forecasts = forecast.list.map {
-                    ForecastViewModel(forecast: $0)
-                }
-                self.location = "\(forecast.city.name), \(forecast.city.country)"
-                self.setupTodayUI()
-            case .failure(let apiError):
-                switch apiError{
-                case .error(let errorString):
-                    print(errorString)
-                }
-            }
-        }
+        setupTodayUI()
     }
     
     private func setupTodayUI() {
-        guard let today = self.forecasts.first else { return }
-        
         self.locationLabel?.text = self.location
-        self.tempAndDescrLabel?.text = "\(today.temp)C | \(today.weatherDescription)"
-        self.weatherImage?.image = UIImage(named: today.icon)?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        self.humidityLabel.text = today.humidity
-        self.popLabel.text = today.pop
-        self.pressureLabel.text = today.prussure
-        self.windSpeedLabel.text = today.windSpeed
-        self.windDirectionLabel.text = today.windDirection
+        self.tempAndDescrLabel?.text = "\(self.today.temp)C | \(self.today.weatherDescription)"
+        self.weatherImage?.image = UIImage(named: self.today.icon)?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        self.humidityLabel.text = self.today.humidity
+        self.popLabel.text = self.today.pop
+        self.pressureLabel.text = self.today.prussure
+        self.windSpeedLabel.text = self.today.windSpeed
+        self.windDirectionLabel.text = self.today.windDirection
     }
 }
