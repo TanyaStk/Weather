@@ -28,7 +28,7 @@ struct ForecastViewModel {
         forecast.weather[0].description
     }
     
-    var prussure: String {
+    var pressure: String {
         "\(forecast.main.pressure) hPa"
     }
     

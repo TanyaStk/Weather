@@ -8,12 +8,12 @@
 import UIKit
 import SwiftUI
 
-class ForecastViewController: UIViewController {
+class ForecastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var forecastTableView: UITableView!
     
     let cellHeight = CGFloat(40)
-    var grouptedForecasts: [[ForecastViewModel]] = [[]]
+    var groupedForecasts: [[ForecastViewModel]] = [[]]
     
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -22,24 +22,30 @@ class ForecastViewController: UIViewController {
         return dateFormatter
     }
     
+//    init(groupedForecasts: [[ForecastViewModel]]) {
+//        super.init(nibName: nil, bundle: nil)
+//        self.groupedForecasts = groupedForecasts
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError()
+//    }
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-}
-
-extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return grouptedForecasts.count
+        return groupedForecasts.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grouptedForecasts[section].count
+        return groupedForecasts[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ForecastTableViewCell.identifier) as! ForecastTableViewCell
-        cell.setupCellUI(forecast: grouptedForecasts[indexPath.section][indexPath.row])
+        cell.setupCellUI(forecast: groupedForecasts[indexPath.section][indexPath.row])
         return cell
     }
     
@@ -49,7 +55,7 @@ extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case 0: label.text = "Today"
         case 1: label.text = "Tomorrow"
-        default: label.text = DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: grouptedForecasts[section].first?.date ?? Date()) - 1]
+        default: label.text = DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: groupedForecasts[section].first?.date ?? Date()) - 1]
             }
         view.addSubview(label)
         return view
@@ -59,3 +65,8 @@ extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
         return self.cellHeight
     }
 }
+
+//extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
+//
+//
+//}
