@@ -28,5 +28,4 @@ class ForecastTableViewCell: UITableViewCell {
         descriptionLabel.text = forecast.weatherDescription
         tempLabel.text = forecast.temp
     }
-
 }

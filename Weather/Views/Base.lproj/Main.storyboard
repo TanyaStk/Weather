@@ -31,13 +31,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" horizontalCompressionResistancePriority="755" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="e6J-jh-f79">
                                                     <rect key="frame" x="76" y="12" width="41" height="36.333333333333336"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-KS-6CH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-KS-6CH">
                                                             <rect key="frame" x="0.0" y="0.0" width="41" height="19.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltC-0f-GV0">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltC-0f-GV0">
                                                             <rect key="frame" x="0.0" y="19.333333333333332" width="34" height="16.999999999999996"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -60,7 +60,7 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ5-by-41K">
                                                     <rect key="frame" x="8" y="0.0" width="60" height="60"/>
-                                                    <color key="tintColor" systemColor="systemYellowColor"/>
+                                                    <color key="tintColor" name="imageColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="BP4-wE-tO2"/>
                                                     </constraints>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GL9-tz-bhh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="329.55665024630542"/>
+            <point key="canvasLocation" x="-814" y="146"/>
         </scene>
         <!--Today-->
         <scene sceneID="efZ-dT-gVL">
@@ -130,7 +130,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Ah-cG-kOR" userLabel="WeatherImage">
                                         <rect key="frame" x="117" y="60.000000000000014" width="190" height="159.33333333333334"/>
-                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <color key="tintColor" name="imageColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="Gyq-pO-fko"/>
                                         </constraints>
@@ -159,7 +159,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="754" image="humidity" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-20-dPc">
                                                                 <rect key="frame" x="50.333333333333336" y="2.6666666666666661" width="22.000000000000007" height="16.666666666666664"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                                <color key="tintColor" name="imageColor"/>
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="regular"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUI-Ak-GUh" userLabel="Humidity Label">
@@ -178,7 +178,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="drop" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X1T-t4-ytE">
                                                                 <rect key="frame" x="41.333333333333329" y="0.66666666666666607" width="40" height="22"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                                <color key="tintColor" name="imageColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="bxC-7D-bh9"/>
                                                                 </constraints>
@@ -203,7 +203,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="thermometer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hXw-zK-veA">
                                                                 <rect key="frame" x="41.333333333333371" y="0.6666666666666643" width="40" height="20.666666666666668"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                                <color key="tintColor" name="imageColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="ViS-aT-Yfr"/>
                                                                 </constraints>
@@ -233,7 +233,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dG4-JB-I0R">
                                                                 <rect key="frame" x="8.3333333333333286" y="2.3333333333333321" width="21" height="17"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                                <color key="tintColor" name="imageColor"/>
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="regular"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="km/h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkG-Dc-mxo" userLabel="WindSpeed Label">
@@ -252,7 +252,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speedometer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0TN-BH-Tka">
                                                                 <rect key="frame" x="0.0" y="0.99999999999999822" width="40" height="19"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                                <color key="tintColor" name="imageColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="e0d-GK-whh"/>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="w6s-bH-PYU"/>
@@ -289,7 +289,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Share">
                                             <fontDescription key="titleFontDescription" type="system" weight="thin" pointSize="30"/>
-                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                            <color key="baseForegroundColor" name="shareButtonColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="shareForecastAsText:" destination="8Of-10-GbH" eventType="touchUpInside" id="o8m-Zt-JK5"/>
@@ -335,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDT-Rv-QKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="-430.04926108374389"/>
+            <point key="canvasLocation" x="-1993" y="146"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EZq-O8-U7T">
@@ -354,7 +354,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdL-Mv-5ca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1409" y="-126"/>
+            <point key="canvasLocation" x="-1406" y="-593"/>
         </scene>
     </scenes>
     <resources>
@@ -369,6 +369,12 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="imageColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="shareButtonColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -377,12 +383,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

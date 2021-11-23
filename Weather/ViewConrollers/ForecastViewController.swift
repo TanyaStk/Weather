@@ -38,8 +38,8 @@ extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:
-                                                    ForecastTableViewCell.identifier) as! ForecastTableViewCell
+        let cell = tableView
+            .dequeueReusableCell(withIdentifier: ForecastTableViewCell.identifier) as! ForecastTableViewCell
         cell.setupCellUI(forecast: groupedForecasts[indexPath.section][indexPath.row])
         return cell
     }
