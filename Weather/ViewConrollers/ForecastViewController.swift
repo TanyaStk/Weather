@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class ForecastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ForecastViewController: UIViewController {
     
     @IBOutlet weak var forecastTableView: UITableView!
     
@@ -22,18 +22,12 @@ class ForecastViewController: UIViewController, UITableViewDelegate, UITableView
         return dateFormatter
     }
     
-//    init(groupedForecasts: [[ForecastViewModel]]) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.groupedForecasts = groupedForecasts
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError()
-//    }
-//    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
+
+extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return groupedForecasts.count
@@ -44,7 +38,8 @@ class ForecastViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ForecastTableViewCell.identifier) as! ForecastTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+                                                    ForecastTableViewCell.identifier) as! ForecastTableViewCell
         cell.setupCellUI(forecast: groupedForecasts[indexPath.section][indexPath.row])
         return cell
     }
@@ -56,7 +51,7 @@ class ForecastViewController: UIViewController, UITableViewDelegate, UITableView
         case 0: label.text = "Today"
         case 1: label.text = "Tomorrow"
         default: label.text = DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: groupedForecasts[section].first?.date ?? Date()) - 1]
-            }
+        }
         view.addSubview(label)
         return view
     }
@@ -65,8 +60,3 @@ class ForecastViewController: UIViewController, UITableViewDelegate, UITableView
         return self.cellHeight
     }
 }
-
-//extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
-//
-//
-//}

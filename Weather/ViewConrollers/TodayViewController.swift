@@ -64,7 +64,7 @@ class TodayViewController: UIViewController, UITabBarControllerDelegate {
             }
         }
     }
-
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = tabBarController.selectedIndex
         if tabBarIndex == 1 {
