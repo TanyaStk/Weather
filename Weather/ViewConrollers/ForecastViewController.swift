@@ -13,7 +13,7 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var forecastTableView: UITableView!
     
     let cellHeight = CGFloat(40)
-    var groupedForecasts: [[ForecastViewModel]] = [[]]
+    var groupedForecasts = [[ForecastViewModel]]()
     
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -30,7 +30,7 @@ class ForecastViewController: UIViewController {
 extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return groupedForecasts.count
+        groupedForecasts.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,7 +50,8 @@ extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case 0: label.text = "Today"
         case 1: label.text = "Tomorrow"
-        default: label.text = DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: groupedForecasts[section].first?.date ?? Date()) - 1]
+        default:
+        label.text = DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: groupedForecasts[section].first?.date ?? Date()) - 1]
         }
         view.addSubview(label)
         return view

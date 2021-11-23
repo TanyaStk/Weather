@@ -39,7 +39,7 @@ class TodayViewController: UIViewController, UITabBarControllerDelegate {
     
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .iso8601)
+        dateFormatter.timeZone = .current
         dateFormatter.dateFormat = "MM/dd/yyyy"
         return dateFormatter
     }
@@ -74,9 +74,10 @@ class TodayViewController: UIViewController, UITabBarControllerDelegate {
     }
 
     private func prepareDataForForecastVC() -> [[ForecastViewModel]]{
-        var groupedForecasts : [[ForecastViewModel]] = [[]]
+        var groupedForecasts = [[ForecastViewModel]]()
         let forecastDict = Dictionary(grouping: forecasts) {Self.dateFormatter.string(from: $0.date)}
-        let sortedForecast = forecastDict.sorted{ (Self.dateFormatter.date(from: $0.key) ?? Date()) < (Self.dateFormatter.date(from: $1.key) ?? Date())
+        let sortedForecast = forecastDict.sorted{
+            (Self.dateFormatter.date(from: $0.key) ?? Date()) < (Self.dateFormatter.date(from: $1.key) ?? Date())
         }
         for key in sortedForecast {
             groupedForecasts.append(key.value)

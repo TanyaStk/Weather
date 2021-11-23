@@ -9,7 +9,7 @@ import Foundation
 
 struct Forecast: Codable {
     struct Hourly: Codable {
-        let dt: Date
+        let dt_txt: String
         
         struct Main: Codable {
             let temp: Double

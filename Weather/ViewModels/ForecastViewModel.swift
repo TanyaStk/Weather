@@ -10,18 +10,29 @@ import Foundation
 struct ForecastViewModel {
     let forecast: Forecast.Hourly
 
-    private static var tempFormatter: NumberFormatter {
+    private static var windSpeedFormatter: NumberFormatter {
         let tempFormatter = NumberFormatter()
-        tempFormatter.maximumFractionDigits = 0
+        tempFormatter.maximumFractionDigits = 1
         return tempFormatter
     }
     
+    private static var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }
+    
+    private enum windDirections {
+        case N, NE, E, SE, S, SW, W, NW
+    }
+    
     var date: Date {
-        return forecast.dt
+        return Self.dateFormatter.date(from: forecast.dt_txt) ?? Date()
     }
     
     var temp: String {
-        return "\(Int(forecast.main.temp))°"
+        "\(Int(forecast.main.temp))°"
     }
     
     var icon: String {
@@ -45,11 +56,31 @@ struct ForecastViewModel {
     }
     
     var windSpeed: String {
-        "\(forecast.wind.speed) km/h"
+        "\(Self.windSpeedFormatter.string(for: forecast.wind.speed * 3.6) ?? "0") km/h"
     }
     
     var windDirection: String {
-        "\(forecast.wind.deg)"
+        let intWindDegree = Int(forecast.wind.deg)
+        switch intWindDegree {
+        case 11 ... 348:
+            return "\(windDirections.N)"
+        case 33 ... 56:
+            return "\(windDirections.NE)"
+        case 78 ... 101:
+            return "\(windDirections.E)"
+        case 123 ... 146:
+            return "\(windDirections.SE)"
+        case 168 ... 191:
+            return "\(windDirections.S)"
+        case 213 ... 236:
+            return "\(windDirections.SW)"
+        case 258 ... 281:
+            return "\(windDirections.W)"
+        case 303 ... 326:
+            return "\(windDirections.NW)"
+        default:
+            return "\(forecast.wind.deg )"
+        }
     }
 }
 

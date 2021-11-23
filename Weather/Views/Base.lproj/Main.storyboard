@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ForecastTableViewCell" rowHeight="60" id="QzC-xF-cPN" customClass="ForecastTableViewCell" customModule="Weather" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationLevel="1" indentationWidth="10" reuseIdentifier="ForecastTableViewCell" rowHeight="60" id="QzC-xF-cPN" customClass="ForecastTableViewCell" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QzC-xF-cPN" id="SB7-K1-ZRG">
@@ -85,7 +85,7 @@
                                         </accessibility>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="ltC-0f-GV0" id="u0H-wp-L58"/>
-                                            <outlet property="forecastImage" destination="ZQ5-by-41K" id="11D-FO-Nee"/>
+                                            <outlet property="forecastImage" destination="ZQ5-by-41K" id="9s9-bU-ZLP"/>
                                             <outlet property="tempLabel" destination="gMz-LR-GBX" id="S4C-lZ-Pqj"/>
                                             <outlet property="timeLabel" destination="ibL-KS-6CH" id="dgQ-27-c45"/>
                                         </connections>
@@ -93,7 +93,7 @@
                                 </prototypes>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="bRl-fU-qh2" id="AiY-d8-TZ5"/>
+                                    <outlet property="dataSource" destination="bRl-fU-qh2" id="Jxu-bw-1Il"/>
                                     <outlet property="delegate" destination="bRl-fU-qh2" id="eMi-3C-cIX"/>
                                 </connections>
                             </tableView>
@@ -341,11 +341,10 @@
         <scene sceneID="EZq-O8-U7T">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarViewController" id="hIE-cd-YV4" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="clear sky" id="esx-aj-HY0">
+                    <tabBar key="tabBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="esx-aj-HY0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" systemColor="labelColor"/>
+                        <color key="tintColor" systemColor="tintColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="8Of-10-GbH" kind="relationship" relationship="viewControllers" id="Gtp-di-3z6"/>
@@ -358,7 +357,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clear sky" width="91" height="91"/>
         <image name="cloud.sun.rain" catalog="system" width="128" height="128"/>
         <image name="drop" catalog="system" width="101" height="128"/>
         <image name="humidity" catalog="system" width="128" height="98"/>
@@ -370,7 +368,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="imageColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.80000001192092896" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="shareButtonColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -383,6 +381,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
