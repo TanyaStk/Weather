@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hIE-cd-YV4">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -355,6 +355,42 @@
             </objects>
             <point key="canvasLocation" x="-1406" y="-593"/>
         </scene>
+        <!--Network Connection View Controller-->
+        <scene sceneID="dDO-Wx-q22">
+            <objects>
+                <viewController storyboardIdentifier="NetworkConnection" id="aok-m5-4BW" customClass="NetworkConnectionViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tUq-HR-qZm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, check your network connection and reload the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLj-rC-V05">
+                                <rect key="frame" x="8" y="406" width="359" height="215"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vMD-nU-Tl0">
+                                <rect key="frame" x="0.0" y="44.333333333333343" width="375" height="359.66666666666669"/>
+                                <color key="tintColor" name="imageColor"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a17-L6-iIt"/>
+                        <color key="backgroundColor" name="launchScreenBackground"/>
+                        <constraints>
+                            <constraint firstItem="vMD-nU-Tl0" firstAttribute="bottom" secondItem="tUq-HR-qZm" secondAttribute="centerY" id="IBS-wq-rok"/>
+                            <constraint firstItem="vMD-nU-Tl0" firstAttribute="leading" secondItem="a17-L6-iIt" secondAttribute="leading" id="OFz-Nm-SRa"/>
+                            <constraint firstItem="zLj-rC-V05" firstAttribute="top" secondItem="tUq-HR-qZm" secondAttribute="centerY" id="ScO-Ll-5XT"/>
+                            <constraint firstAttribute="trailing" secondItem="zLj-rC-V05" secondAttribute="trailing" constant="8" id="fN5-j9-sug"/>
+                            <constraint firstItem="zLj-rC-V05" firstAttribute="leading" secondItem="a17-L6-iIt" secondAttribute="leading" constant="8" id="h65-Y4-ewV"/>
+                            <constraint firstItem="vMD-nU-Tl0" firstAttribute="trailing" secondItem="a17-L6-iIt" secondAttribute="trailing" id="lqa-HP-QDR"/>
+                            <constraint firstItem="vMD-nU-Tl0" firstAttribute="top" secondItem="a17-L6-iIt" secondAttribute="top" id="nYY-PR-pLE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRD-lj-iD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-636" y="-593.3497536945813"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cloud.sun.rain" catalog="system" width="128" height="128"/>
@@ -363,12 +399,16 @@
         <image name="speedometer" catalog="system" width="128" height="121"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <image name="thermometer" catalog="system" width="81" height="128"/>
+        <image name="wifi.slash" catalog="system" width="128" height="102"/>
         <image name="wind" catalog="system" width="128" height="103"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="imageColor">
             <color red="1" green="0.80000001192092896" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="launchScreenBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="shareButtonColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

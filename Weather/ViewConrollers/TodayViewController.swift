@@ -50,9 +50,20 @@ class TodayViewController: UIViewController, UITabBarControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.tabBarController?.delegate = self
-        
+        DispatchQueue.main.async {
+            if NetworkMonitor.shared.isConnected {
+                self.tabBarController?.delegate = self
+                self.setupLocation()
+            }
+            else {
+                if let networkVC = self.storyboard?.instantiateViewController(withIdentifier: "NetworkConnection") as? NetworkConnectionViewController {
+                    self.present(networkVC, animated: true)
+                }
+            }
+        }
+    }
+    
+    private func setupLocation() {
         locationManeger.setupLocationManager()
         locationManeger.didUpdatedLocation = { [self] in
             if locationManeger.lat != nil {
