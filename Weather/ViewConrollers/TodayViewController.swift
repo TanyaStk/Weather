@@ -56,7 +56,8 @@ class TodayViewController: UIViewController, UITabBarControllerDelegate {
                 self.setupLocation()
             }
             else {
-                if let networkVC = self.storyboard?.instantiateViewController(withIdentifier: "NetworkConnection") as? NetworkConnectionViewController {
+                if let networkVC = self.storyboard?
+                    .instantiateViewController(withIdentifier: "NetworkConnection") as? NetworkConnectionViewController {
                     self.present(networkVC, animated: true)
                 }
             }
