@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Forecast: Codable {
+struct ForecastRequest: Codable {
     struct Hourly: Codable {
         let dt_txt: String
         
@@ -40,6 +40,7 @@ struct Forecast: Codable {
         let name: String
         let country: String
     }
+    
     let city: City
 }
 
