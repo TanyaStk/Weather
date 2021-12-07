@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ForecastViewModel {
+struct ForecastModel {
     let forecast: ForecastRequest.Hourly
 
     private static var windSpeedFormatter: NumberFormatter {
