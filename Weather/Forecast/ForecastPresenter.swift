@@ -42,7 +42,7 @@ class ForecastPresenter {
         forecast[section].count
     }
     
-    func headerInSection(section: Int) -> String {
+    func headerIn(section: Int) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM dd, YYYY"
         

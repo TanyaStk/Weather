@@ -72,7 +72,7 @@ class CurrentWeatherPresenter {
         }
     }
     
-    func prepareDataForForecastVC() -> [[ForecastModel]] {
+    private func prepareDataForForecastVC() -> [[ForecastModel]] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
@@ -85,6 +85,10 @@ class CurrentWeatherPresenter {
             groupedForecasts.append(key.value)
         }
         return groupedForecasts
+    }
+    
+    func sendForecast(to viewController: ForecastViewController) {
+        viewController.presenter.setForecast(forecast: prepareDataForForecastVC())
     }
     
     func setViewDelegate(delegate: CurrentPD) {

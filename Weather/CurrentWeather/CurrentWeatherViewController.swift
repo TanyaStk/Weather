@@ -51,7 +51,7 @@ class CurrentWeatherViewController: UIViewController, UITabBarControllerDelegate
         let tabBarIndex = tabBarController.selectedIndex
         if tabBarIndex == 1 {
             let viewController  = tabBarController.viewControllers?[1] as! ForecastViewController
-            viewController.groupedForecasts = presenter.prepareDataForForecastVC()
+            presenter.sendForecast(to: viewController)
         }
     }
     

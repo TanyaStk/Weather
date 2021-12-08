@@ -13,20 +13,12 @@ class ForecastViewController: UIViewController, ForecastPresenterDelegate {
     @IBOutlet weak var forecastTableView: UITableView!
     
     let cellHeight = CGFloat(40)
-    var groupedForecasts = [[ForecastModel]]()
     
-    private let presenter = ForecastPresenter()
+    let presenter = ForecastPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setViewDelegate(delegate: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        DispatchQueue.main.async {
-            self.presenter.setForecast(forecast: self.groupedForecasts)
-        }
     }
 }
 
@@ -54,7 +46,7 @@ extension ForecastViewController: UITableViewDataSource, UITableViewDelegate {
         case 0: label.text = "Today"
         case 1: label.text = "Tomorrow"
         default:
-            label.text = presenter.headerInSection(section: section)
+            label.text = presenter.headerIn(section: section)
         }
         view.addSubview(label)
         return view
